@@ -32,6 +32,7 @@ stage('Test') {
                     junit 'target/surefire-reports/*.xml'
                 }
             }
+}
          stage('Integration Tests') {
                 steps {
                          sh label: '', script: 'mvn verify -Dsurefire.skip=true'
