@@ -27,8 +27,6 @@ pipeline {
 
          stage('Archive des artifacts') {
                 steps {
-                                  stash(name: 'artifact', includes: 'target/*.war')
-                                  stash(name: 'pom', includes: 'pom.xml')
                                   // to add artifacts in jenkins pipeline tab (UI)
                                   archiveArtifacts 'target/*.war'
                          }
