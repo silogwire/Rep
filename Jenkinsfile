@@ -30,7 +30,7 @@ pipeline {
                 }
                 post {
                     always {
-                         junit '/var/jenkins_home/workspace/tp_houcem_pipline/server/target/surefire-reports/*.xml'
+                         junit 'target/surefire-reports/*.xml'
 
                     }
                 }
@@ -42,7 +42,7 @@ pipeline {
                  }
                  post {
                          always {
-                                 junit 'target/failsafe-reports/**/*.xml'
+                                 junit 'target/failsafe-reports/*.xml'
                          }
                          success {
                                   stash(name: 'artifact', includes: 'target/*.jar')
