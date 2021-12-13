@@ -30,7 +30,7 @@ pipeline {
                 }
                 post {
                     always {
-                         junit 'target/surefire-reports/TEST-com.example.TestGreeter.xml'
+                         junit '/var/jenkins_home/workspace/tp_houcem_pipline/server/target/surefire-reports/*.xml'
 
                     }
                 }
