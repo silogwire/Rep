@@ -36,8 +36,6 @@ pipeline {
                  }
                  post {
                          success {
-                                  stash(name: 'artifact', includes: 'target/*.jar')
-                                  stash(name: 'pom', includes: 'pom.xml')
                                   // to add artifacts in jenkins pipeline tab (UI)
                                   archiveArtifacts 'target/*.jar'
                          }
