@@ -1,3 +1,3 @@
 # maven-project
 
-sSimple Maven Project 
+Simple Maven Project 
