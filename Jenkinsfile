@@ -33,12 +33,12 @@ pipeline {
                          junit 'server/target/surefire-reports/*.xml'
                     }
                 
-                         success {
-                                  stash(name: 'artifact', includes: 'server/target/*.jar')
-                                  stash(name: 'pom', includes: 'pom.xml')
+        //                 success {
+         //                         stash(name: 'artifact', includes: 'server/target/*.jar')
+             //                     stash(name: 'pom', includes: 'pom.xml')
                                   // to add artifacts in jenkins pipeline tab (UI)
-                                  archiveArtifacts 'server/target/*.jar'
-                         }
+           //                       archiveArtifacts 'server/target/*.jar'
+               //          }
                  }
         }
 
