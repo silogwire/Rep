@@ -24,7 +24,7 @@ pipeline {
        		 }
 	}
 
-         stage('Unit Tests') {
+         stage('Tests') {
                 steps {
                          sh 'mvn test'
                 }
@@ -32,17 +32,7 @@ pipeline {
                     always {
                          junit 'server/target/surefire-reports/*.xml'
                     }
-                }
-         }
-         stage('Integration Tests') {
-                steps {
-                         sh label: '', script: 'mvn verify -Dsurefire.skip=true'
-
-                 }
-                 post {
-                         always {
-                                 junit 'server/target/failsafe-reports/*.xml'
-                         }
+                
                          success {
                                   stash(name: 'artifact', includes: 'server/target/*.jar')
                                   stash(name: 'pom', includes: 'pom.xml')
