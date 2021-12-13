@@ -44,10 +44,10 @@ pipeline {
                                  junit 'server/target/failsafe-reports/*.xml'
                          }
                          success {
-                                  stash(name: 'artifact', includes: 'target/*.jar')
+                                  stash(name: 'artifact', includes: 'server/target/*.jar')
                                   stash(name: 'pom', includes: 'pom.xml')
                                   // to add artifacts in jenkins pipeline tab (UI)
-                                  archiveArtifacts 'target/*.jar'
+                                  archiveArtifacts 'server/target/*.jar'
                          }
                  }
         }
