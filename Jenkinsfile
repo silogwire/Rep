@@ -23,20 +23,24 @@ pipeline {
                		 sh 'mvn clean compile'
        		 }
 	}
-stage('Test') {
-            steps {
-                sh 'mvn test'
-            }
-            post {
-                always {
-                    junit 'target/surefire-reports/*.xml'
+
+         stage('Unit Tests') {
+                steps {
+                         sh 'mvn test'
                 }
-            }
-}
+         }
          stage('Integration Tests') {
                 steps {
                          sh label: '', script: 'mvn verify -Dsurefire.skip=true'
 
+                 }
+                 post {
+                         success {
+                                  stash(name: 'artifact', includes: 'target/*.jar')
+                                  stash(name: 'pom', includes: 'pom.xml')
+                                  // to add artifacts in jenkins pipeline tab (UI)
+                                  archiveArtifacts 'target/*.jar'
+                         }
                  }
         }
 
