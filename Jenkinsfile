@@ -57,17 +57,11 @@ pipeline {
 
 		 stage('Docker Push') { 
 			steps {
-        			withCredentials([usernamePassword(credentialsId: /
-			 	'dockerHub',passwordVariable: 'dockerHubPassword', /
-				usernameVariable: 'dockerHubUser')]) {
+        			withCredentials([usernamePassword(credentialsId: 'dockerHub',passwordVariable: 'dockerHubPassword',sernameVariable: 'dockerHubUser')]) {
          				 sh "docker login -u ${env.dockerHubUser} -p ${env.dockerHubPassword}" 
         			 	sh 'docker push sihamlogwire/webapp:latest'        
    				 } 
 			}
-		}
-		catch (err) {
-			currentBuild.result = "FAILURE"
-			throw err
 		}
 	}
 }
