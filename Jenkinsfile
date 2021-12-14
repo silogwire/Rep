@@ -55,5 +55,7 @@ pipeline {
       steps {
         sh 'docker build -t siham/server:latest .'
       }
+	}
+
 }
 }
