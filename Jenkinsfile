@@ -58,11 +58,11 @@ pipeline {
 	}
 
 	stage('Test Image') {
-	sdocker run -p 8081:8080 server
+	sh 'docker run -p 8081:8080 server'
 	sh 'docker ps'
 	sh 'curl 79.137.37.35'
 }
-}
+
 
 
 }
