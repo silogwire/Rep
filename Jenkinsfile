@@ -35,7 +35,7 @@ pipeline {
                     }
                 
                          success {
-                               stash(name: 'artifact', includes: 'server/webapp/*.war')
+                               stash(name: 'artifact', includes: 'webapp/target/*.war')
                                 stash(name: 'pom', includes: 'pom.xml')
                                   // to add artifacts in jenkins pipeline tab (UI)
                                   archiveArtifacts 'webapp/target/*.war'
