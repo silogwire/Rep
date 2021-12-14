@@ -44,13 +44,13 @@ pipeline {
 
 		stage('Docker Build') {
       			steps {
-	      			sh 'docker build -t sihamlogwire/webapp:latest .'
+	      			sh 'docker build -t sihamlogwire/webapp:1.0 .'
       			 }
  		}
  
 		stage('Test Image') {
  			steps {
-			 	sh 'docker run -tid -p  8081:8080 webapp:latest'
+			 	sh 'docker run -tid -p  8081:8080 webapp:1.0'
 			 }
 		}
 
