@@ -160,7 +160,6 @@
         </plugin>
       </plugins>
     </pluginManagement>
-    <finalName>server</finalName>
   </build>
 
   <dependencyManagement>
