@@ -50,6 +50,10 @@ pipeline {
                                             -Dsonar.login=$SONARQUBE_LOGIN'
               }
       }
+	  stage('Deliver') { 
+            steps {
+                sh 'java -jar server/target/sever.jar'
+            }
 
  }
 
