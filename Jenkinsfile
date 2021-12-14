@@ -35,10 +35,10 @@ pipeline {
                     }
                 
                          success {
-                               stash(name: 'artifact', includes: 'server/target/*.jar')
+                               stash(name: 'artifact', includes: 'server/webapp/*.war')
                                 stash(name: 'pom', includes: 'pom.xml')
                                   // to add artifacts in jenkins pipeline tab (UI)
-                                  archiveArtifacts 'server/target/*.jar'
+                                  archiveArtifacts 'webapp/target/*.war'
                      }
                  }
         }
@@ -51,18 +51,18 @@ pipeline {
 //                                            -Dsonar.login=$SONARQUBE_LOGIN'
 //              }
 //      }
-    stage('Docker Build') {
-      steps {
-        sh 'docker build -t server:latest .'
-      }
-	}
-
-	stage('Test Image') {
-	steps {
-	sh 'docker run -p 8081:8080 server'
-	sh 'docker ps'
-	sh 'curl 79.137.37.35'
-}}
+//     stage('Docker Build') {
+//       steps {
+   //      sh 'docker build -t server:latest .'
+//       }
+// 	}
+// 
+// 	stage('Test Image') {
+// 	steps {
+// 	sh 'docker run -p 8081:8080 server'
+// 	sh 'docker ps'
+// 	sh 'curl 79.137.37.35'
+// }}
 
 
 
