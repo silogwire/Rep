@@ -53,7 +53,7 @@ pipeline {
     stage('Docker Build') {
       agent any
       steps {
-        sh 'docker build -t siham/server:latest .'
+        sh 'docker build -t server:latest .'
       }
 	}
 
