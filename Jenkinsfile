@@ -1,10 +1,11 @@
 pipeline {
-    agent {
-        docker {
-            image 'maven:3-alpine' 
-            args '-v /root/.m2:/root/.m2' 
-        }
-     }
+    agent 
+// {
+//        docker {
+//            image 'maven:3-alpine' 
+//            args '-v /root/.m2:/root/.m2' 
+//        }
+//     }
   environment {
                  SONARQUBE_URL = "http://79.137.37.35"
                  SONARQUBE_PORT = "9000"
