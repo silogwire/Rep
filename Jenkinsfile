@@ -58,11 +58,11 @@ pipeline {
        }
  	}
  
-	stage('Test Image') {
- 		steps {
-		 	sh 'docker run -tid -p  8081:8080 webapp:latest'
-		 }
-	}
+//	stage('Test Image') {
+// 		steps {
+//		 	sh 'docker run -tid -p  8081:8080 webapp:latest'
+//		 }
+//	}
 
 
  stage('Docker Push') { 
