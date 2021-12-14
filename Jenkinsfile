@@ -58,7 +58,7 @@ pipeline {
 	}
 
 	stage('Test Image') {
-	docker.image('nginx:latest').withRun('-p 80:80' ) { c ->
+	sdocker run -p 8081:8080 server
 	sh 'docker ps'
 	sh 'curl 79.137.37.35'
 }
