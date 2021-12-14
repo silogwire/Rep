@@ -44,25 +44,25 @@ pipeline {
         }
 
 
-//      stage('Code Quality Analysis') {
-//              steps {
-//                      sh 'mvn sonar:sonar -Dsonar.projectKey=sonarqube_Hello \
-//                                            -Dsonar.host.url=$SONARQUBE_URL:$SONARQUBE_PORT \
-//                                            -Dsonar.login=$SONARQUBE_LOGIN'
-//              }
-//      }
-//     stage('Docker Build') {
-//       steps {
-   //      sh 'docker build -t server:latest .'
-//       }
-// 	}
-// 
-// 	stage('Test Image') {
-// 	steps {
-// 	sh 'docker run -p 8081:8080 server'
-// 	sh 'docker ps'
-// 	sh 'curl 79.137.37.35'
-// }}
+      stage('Code Quality Analysis') {
+              steps {
+                      sh 'mvn sonar:sonar -Dsonar.projectKey=sonarqube_Hello \
+                                            -Dsonar.host.url=$SONARQUBE_URL:$SONARQUBE_PORT \
+                                            -Dsonar.login=$SONARQUBE_LOGIN'
+              }
+      }
+     stage('Docker Build') {
+       steps {
+	      sh 'docker build -t webapp:latest .'
+       }
+ 	}
+ 
+ 	stage('Test Image') {
+ 	steps {
+ 	sh 'docker run -p 8081:8080 server'
+ 	sh 'docker ps'
+ 	sh 'curl 79.137.37.35'
+ }}
 
 
 

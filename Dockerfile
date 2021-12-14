@@ -1,6 +1,13 @@
-FROM openjdk:8
-LABEL maintainer="siham@gmail.com"
-USER root
-copy server/target/server.jar server.jar
-ENTRYPOINT ["java", "-jar","server.jar"]
-EXPOSE 8080
+# Pull base image
+From tomcat:8-jre8
+
+# Maintainer
+MAINTAINER "Siham@gmail.com">
+
+# Copy to images tomcat path
+ADD webapp/target/webapp.war /usr/local/tomcat/webapps/
+
+
+
+
+
