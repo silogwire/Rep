@@ -62,6 +62,7 @@ pipeline {
 	sh 'docker ps'
 	sh 'curl 79.137.37.35'
 }
+}
 
 
 }
