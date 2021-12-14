@@ -1,8 +1,6 @@
 pipeline {
 	agent any 
 	environment {
-                 SONARQUBE_URL = "http://79.137.37.35"
-                 SONARQUBE_PORT = "9000"
                  SONARQUBE_LOGIN = "7feb11a80127b3e132ef98b518d67e4115959d1a"
          }
 
@@ -50,20 +48,26 @@ pipeline {
       			 }
  		}
  
-//		stage('Test Image') {
-// 			steps {
-//			 	sh 'docker run -tid -p  8081:8080 webapp:latest'
-//			 }
-//		}
+		stage('Test Image') {
+ 			steps {
+			 	sh 'docker run -tid -p  8081:8080 webapp:latest'
+			 }
+		}
 
 
 		 stage('Docker Push') { 
 			steps {
-        		withCredentials([usernamePassword(credentialsId: 'dockerHub',passwordVariable: 'dockerHubPassword',usernameVariable: 'dockerHubUser')]) {
-         			 sh "docker login -u ${env.dockerHubUser} -p ${env.dockerHubPassword}" 
-        			 sh 'docker push sihamlogwire/webapp:latest'        
-   			 } 
+        			withCredentials([usernamePassword(credentialsId: /
+			 	'dockerHub',passwordVariable: 'dockerHubPassword', /
+				usernameVariable: 'dockerHubUser')]) {
+         				 sh "docker login -u ${env.dockerHubUser} -p ${env.dockerHubPassword}" 
+        			 	sh 'docker push sihamlogwire/webapp:latest'        
+   				 } 
 			}
+		}
+		catch (err) {
+			currentBuild.result = "FAILURE"
+			throw err
 		}
 	}
 }
