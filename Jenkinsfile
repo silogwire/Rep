@@ -50,11 +50,10 @@ pipeline {
                                             -Dsonar.login=$SONARQUBE_LOGIN'
               }
       }
-	  stage('Deliver') { 
-            steps {
-                sh 'java -jar server/target/sever.jar'
-            }
-
- }
+    stage('Docker Build') {
+      agent any
+      steps {
+        sh 'docker build -t siham/server:latest .'
+      }
 }
 }
