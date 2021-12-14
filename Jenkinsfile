@@ -51,12 +51,11 @@ pipeline {
 //                                            -Dsonar.login=$SONARQUBE_LOGIN'
 //              }
 //      }
-//    stage('Docker Build') {
-//      agent any
-//      steps {
-//        sh 'docker build -t server:latest .'
-//      }
-//	}
+    stage('Docker Build') {
+      steps {
+        sh 'docker build -t server:latest .'
+      }
+	}
 
 }
 }
