@@ -60,7 +60,7 @@ pipeline {
  
 	stage('Test Image') {
  		steps {
-		 	sh 'docker run -p 8081:8080 webapp:latest'
+		 	sh 'docker run -tid -p  8081:8080 webapp:latest'
 		 }
 	}
 
