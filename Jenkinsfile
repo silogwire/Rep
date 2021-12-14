@@ -57,7 +57,8 @@ pipeline {
 
 		 stage('Docker Push') { 
 			steps {
-        			withCredentials([usernamePassword(credentialsId:'dockerHub',passwordVariable: 'dockerHubPassword',sernameVariable: 'dockerHubUser')]) {
+        			withCredentials([usernamePassword(credentialsId:'dockerHub',passwordVariable: 'dockerHubPassword',usernameVariable: 'dockerHubUser')]) {
+
          				 sh "docker login -u ${env.dockerHubUser} -p ${env.dockerHubPassword}" 
         			 	sh 'docker push sihamlogwire/webapp:1.0'        
    				 } 
